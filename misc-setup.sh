@@ -20,9 +20,10 @@ cat slack-dark-theme.js >> /Applications/Slack.app/Contents/Resources/app.asar.u
 vagrant box add laravel/homestead
 git clone https://github.com/laravel/homestead.git ~/Homestead
 cd ~/Homestead
-git checkout v7.8.0
+git checkout release
 bash init.sh
 vagrant plugin install vagrant-bindfs
+cp Homestead.yaml ~/Homestead/Homestead.yaml
 
 #Composer Packages
 composer global require "squizlabs/php_codesniffer=*"

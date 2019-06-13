@@ -9,40 +9,75 @@ echo "Installing brew..."
 echo "Installing brew cask..."
 brew tap caskroom/cask
 
+BREW_PACKAGES=(
+    awscli
+    composer
+    cookiecutter
+    coreutils
+    git
+    git-flow
+    imagemagick
+    libxml2
+    libyaml
+    mcrypt
+    node
+    openconnect
+    php
+    php-cs-fixer
+    php@7.2
+    phpunit
+    pkg-config
+    python@2
+    redis
+    rsync
+    runit
+    sl
+    telnet
+    zsh
+)
+
+BREW_CASK_PACKAGES=(
+    android-file-transfer
+    brave-browser
+    google-chrome
+    iterm2
+    postman
+    sourcetree
+    sublime-text
+    visual-studio-code
+    android-platform-tools
+    cyberduck
+    handbrake
+    java
+    sequel-pro-nightly
+    spectacle
+    vagrant
+    vlc
+    bluestacks
+    numi
+    slack
+    spotify
+    virtualbox
+)
+
 brew update
 brew upgrade
 
-#Programming Languages
-brew install node
-brew install php@7.1
+PACKAGES=''
+for package in "${BREW_PACKAGES[@]}"
+do :
+   PACKAGES+=" ${package}"
+done
 
-#Dev Tools
-brew install composer
-brew install php-cs-fixer
-brew install phpunit
-brew install git
-brew cask install visual-studio-code
-brew cask install sequel-pro
-brew cask install iterm2
-brew install zsh
-brew cask install sourcetree
-brew cask install sublime-text
-brew cask install virtualbox
-brew cask instal vagrant
+brew install ${PACKAGES}
 
-#Communication Apps
-brew cask install slack
+PACKAGES=''
+for package in "${BREW_CASK_PACKAGES[@]}"
+do :
+   PACKAGES+=" ${package}"
+done
 
-#Web Tools
-brew cask install google-chrome
-brew cask install firefox
-
-#Entertainment
-brew cask install spotify
-
-#Misc
-brew cask install spectacle
-brew cask install numi
+brew cask install ${PACKAGES}
 
 #Cleanup
 brew cleanup
