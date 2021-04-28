@@ -5,7 +5,11 @@
 
 # Shell / Propt
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+brew install starship
+echo -e "\neval \"\$(starship init zsh)\"" >>~/.zshrc
 brew install zsh
+brew install zsh-autosuggestions
+echo -e "\nsource /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh" >>~/.zshrc
 
 # Programming Languages
 brew install php@7.4
@@ -39,6 +43,7 @@ brew install firefox
 # Fonts
 brew tap homebrew/cask-fonts
 brew install font-fira-code
+brew install font-fira-code-nerd-font
 brew install font-fira-mono
 brew install font-fira-sans
 
